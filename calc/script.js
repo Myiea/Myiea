@@ -26,6 +26,7 @@ function handleSymbol(symbol){
             flushOperation(parseInt(buffer));
             previousOperator = null;
             buffer = runningTotal;
+            runningTotal = 0;
             break; 
         case '←':
             if(buffer.length === 1){
@@ -35,10 +36,10 @@ function handleSymbol(symbol){
             }
             break;
         case '+':
-        case '-':
-        case 'x':
+        case '−':
+        case '×':
         case '÷':
-            handleSymbol(symbol);
+            handleMath(symbol);
             break;    
     }
 }
@@ -63,17 +64,27 @@ function handleMath(symbol){
 function flushOperation(intBuffer){
     if(previousOperator === '+'){
         runningTotal += intBuffer;
-    }else if(previousOperator === '-'){
-        runningTotal -= intBuffer
+    }else if(previousOperator === '−'){
+        runningTotal -= intBuffer;
     }else if(previousOperator === 'x'){
         runningTotal *= intBuffer
     }else if(previousOperator === '÷'){
-        runningTotal /= intBuffer
+        runningTotal /= intBuffer;
     }
 }
 
 function handleNumber(numberString){
-    if(buffer === '0'){
-        
+    if(buffer === "0"){
+        buffer =numberString;
+    }else{
+        buffer += numberString;
     }
 }
+
+function init(){
+    document.querySelector('.calc-buttons').addEventListener('click', function(event){
+        buttonClick(event.target.innerText);
+    })
+}
+
+init();
