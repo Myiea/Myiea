@@ -4,4 +4,4 @@
 - 🌱 I’m currently learning C and C++
 - 📫 How to reach me: myngghuynh@gmail.com or Discord: Myie#5598
 - 😄 Pronouns: They/Them/She but will never be her :(
-- ⚡ Fun fact: I'm an ambivert ENFP
+- ⚡ ENTP
